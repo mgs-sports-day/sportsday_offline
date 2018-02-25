@@ -1,4 +1,4 @@
-# MGS Sports Day - Public Results Viewer
+# MGS Sports Day 2018 :: Public Results Viewer
 
 **Live version is avaliable at https://tti0.github.io/sportsday/.**
 
