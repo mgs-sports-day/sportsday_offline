@@ -1,29 +1,29 @@
 function updateBoxes(res, com) {
   switch (res) {
     case 0:
-      $( 'results-container' )
+      $( '#results-container' )
         .html ( '<div class="alert alert-success"><strong>Online!</strong> You can visit this page by clicking <a href="#" class="alert-link">here</a>.</div>' );
       break;
     case 1:
-      $( 'results-container' )
+      $( '#results-container' )
         .html ( '<div class="alert alert-danger"><strong>Sorry!</strong> This page is currently offline. Please check again later.</div>' );
       break;
     default:
-      $( 'results-container' )
+      $( '#results-container' )
         .html ( '<div class="alert alert-warning"><strong>Error!</strong></div>' );
       break;
   }
   switch (com) {
     case 0:
-      $( 'compets-container' )
+      $( '#compets-container' )
         .html ( '<div class="alert alert-success"><strong>Online!</strong> You can visit this page by clicking <a href="#" class="alert-link">here</a>.</div>' );
       break;
     case 1:
-      $( 'compets-container' )
+      $( '#compets-container' )
         .html ( '<div class="alert alert-danger"><strong>Sorry!</strong> This page is currently offline. Please check again later.</div>' );
       break;
     default:
-      $( 'compets-container' )
+      $( '#compets-container' )
         .html ( '<div class="alert alert-warning"><strong>Error!</strong></div>' );
       break;
   }
