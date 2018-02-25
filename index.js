@@ -27,7 +27,7 @@ function updateBoxes(res, com) {
         .html ( '<div class="alert alert-warning"><strong>Error!</strong></div>' );
       break;
   }
-}
+};
 
 function loadData() {
   var xhr = new XMLHttpRequest();
