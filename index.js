@@ -1,6 +1,14 @@
-var statusSheet = 'https://docs.google.com/spreadsheets/d/1kApI3fZBqBqRx_egkx4BIGrWpoodAuyKd-e3lQ8CxMk/edit#gid=0';
-var rawStatusResults = sheetrock({
-  url: statusSheet,
-  query: "select A,B where A = 'results'",
-});
-alert(rawStatusResults);
+var url = 'https://docs.google.com/spreadsheets/d/1kApI3fZBqBqRx_egkx4BIGrWpoodAuyKd-e3lQ8CxMk';
+var query = 'select A';
+var queryEncoded = encodeURIComponent(query);
+var finalURL = url + '/gviz/tq?tq=' + queryEncoded;
+console.log(finalURL);
+var xhr = new XMLHttpRequest();
+xhr.open('GET', finalURL, true);
+xhr.send();
+xhr.onreadystatechange = processRequest;
+function processRequest(e) {
+  if (xhr.readyState == 4) {
+    alert(xhr.responseText);
+  };
+};
