@@ -5,30 +5,30 @@
 function updateBoxes(res, com) {
   switch (res) {
     case 1:
-      $( '#results-container' )
-        .html ( '<div class="alert alert-success"><strong>Online!</strong> You can visit this page by clicking <a href="#" class="alert-link">here</a>.</div>' );
+      $('#results-container')
+        .html ('<div class="alert alert-success"><strong>Online!</strong> You can visit this page by clicking <a href="#" class="alert-link">here</a>.</div>');
       break;
     case 0:
-      $( '#results-container' )
-        .html ( '<div class="alert alert-danger"><strong>Sorry!</strong> This page is currently offline. Please check again later.</div>' );
+      $('#results-container')
+        .html ('<div class="alert alert-danger"><strong>Sorry!</strong> This page is currently offline. Please check again later.</div>');
       break;
     default:
-      $( '#results-container' )
-        .html ( '<div class="alert alert-warning"><strong>Error!</strong></div>' );
+      $('#results-container')
+        .html ('<div class="alert alert-warning"><strong>Error!</strong></div>');
       break;
   }
   switch (com) {
     case 1:
-      $( '#compets-container' )
-        .html ( '<div class="alert alert-success"><strong>Online!</strong> You can visit this page by clicking <a href="#" class="alert-link">here</a>.</div>' );
+      $('#compets-container')
+        .html ('<div class="alert alert-success"><strong>Online!</strong> You can visit this page by clicking <a href="#" class="alert-link">here</a>.</div>');
       break;
     case 0:
-      $( '#compets-container' )
-        .html ( '<div class="alert alert-danger"><strong>Sorry!</strong> This page is currently offline. Please check again later.</div>' );
+      $('#compets-container')
+        .html ('<div class="alert alert-danger"><strong>Sorry!</strong> This page is currently offline. Please check again later.</div>');
       break;
     default:
-      $( '#compets-container' )
-        .html ( '<div class="alert alert-warning"><strong>Error!</strong></div>' );
+      $('#compets-container')
+        .html ('<div class="alert alert-warning"><strong>Error!</strong></div>');
       break;
   }
 };
@@ -55,8 +55,41 @@ function loadData() {
   }
 };
 
-$( '#manual-refresh' ).click(function(){
+var secs;
+var timerID = null;
+var timerRunning = false;
+var delay = 1000;
+
+function initializeTimer(seconds) {
+    secs = seconds;
+    stopClock();
+    startTimer();
+}
+
+function stopClock() {
+    if (timerRunning)
+        clearTimeout(timerID);
+    timerRunning = false;
+}
+
+function startTimer() {
+    if (secs == 0) {
+        stopClock();
+        loadData();
+        initializeTimer(30);
+    }
+    else {
+      $('#timer-lbl')
+        .html ('Current site status (reloading in ' + secs + ' ' + owl.pluralize("second", secs) + ')');
+        secs = secs - 1;
+        timerRunning = true;
+        timerID = self.setTimeout("startTimer()", delay);
+    }
+}
+
+$('#manual-refresh').click(function(){
   loadData();
 });
 
 loadData();
+initializeTimer(30);
