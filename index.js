@@ -1,10 +1,10 @@
 function updateBoxes(res, com) {
   switch (res) {
-    case 0:
+    case 1:
       $( '#results-container' )
         .html ( '<div class="alert alert-success"><strong>Online!</strong> You can visit this page by clicking <a href="#" class="alert-link">here</a>.</div>' );
       break;
-    case 1:
+    case 0:
       $( '#results-container' )
         .html ( '<div class="alert alert-danger"><strong>Sorry!</strong> This page is currently offline. Please check again later.</div>' );
       break;
@@ -14,11 +14,11 @@ function updateBoxes(res, com) {
       break;
   }
   switch (com) {
-    case 0:
+    case 1:
       $( '#compets-container' )
         .html ( '<div class="alert alert-success"><strong>Online!</strong> You can visit this page by clicking <a href="#" class="alert-link">here</a>.</div>' );
       break;
-    case 1:
+    case 0:
       $( '#compets-container' )
         .html ( '<div class="alert alert-danger"><strong>Sorry!</strong> This page is currently offline. Please check again later.</div>' );
       break;
