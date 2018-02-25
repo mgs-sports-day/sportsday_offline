@@ -21,6 +21,9 @@
      </button>
      <div class="collapse navbar-collapse" id="collapsibleNavbar">
        <ul class="navbar-nav">
+         <li class="nav-text">
+           <button class="btn btn-info" type="submit">Refresh live data</button>
+         </li>
          <li class="nav-item">
            <a class="nav-link" href="index.html">Home</a>
          </li>
@@ -46,11 +49,18 @@
       <h1>MGS Sports Day Website: Home</h1>
       <img src="lib/img/mgs_sport_logo_457x457px.png" alt="MGS Sport Logo" style="height:13%;width:13%;margin:0.8em;" align="left">
       <p>Welcome to the MGS Senior Sports Day Website for 2018. On this site, you can view results in real time, view events in real time, and find out when it's time for you to compete.</p>
-      <p>It is intended for use only on Sports Day, and will be deactivated before and afterwards. This year, MGS Senior Sports Day will fall on <strong>4th July 2018</strong>. You can view the current activation status of parts of the site below.</p>
-      <p>This site is developed internally by The Manchester Grammar School, and is a joint venture between the Computer Science and PE departments. Please read the <a href="about.html">About page</a> for further information.</p>
-      <h3>Site status (Reloading in X seconds)</h3>
+      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#explanation">Click me to show more info...</button>
+      <div id="explanation" class="collapse">
+        <p>To use this site, your device must support HTML5, CSS3 and JavaScript. Most modern smart devices (including most mobile phones) made after 2013 have this functionality. If no data shows in the "Current site status" area below, your device is not supported.</p>
+        <p>All pages on this site re-load their data automatically every 30 seconds. A countdown is displayed showing time until the next refresh. If you want to refresh the data manually, click the blue button at the top of every page (in the menu on mobile devices). To keep data usage down, only the live data is reloaded every 30 seconds, or when the button is clicked, rather than the entire website. Therefore, if you just want the latest data, press the blue button, not your web browser's refresh button.</p>
+        <p>It is intended for use only on Sports Day, and will be deactivated before and afterwards. This year, MGS Senior Sports Day will fall on <strong>4th July 2018</strong>. You can view the current activation status of parts of the site below.</p>
+        <p>This site is developed internally by The Manchester Grammar School, and is a joint venture between the Computer Science and PE departments. Please read the <a href="about.html">About page</a> for further information.</p>
+      </div>
       <table class="table">
         <thead>
+          <tr class="thead-light">
+            <th colspan="2">Current site status (reloading in X seconds)</th>
+          </tr>
           <tr>
             <th>Page</th>
             <th>Status</th>

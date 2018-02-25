@@ -49,8 +49,6 @@ function loadData() {
   }
 };
 
-updateBoxes(1,1);
-
 var url = 'https://docs.google.com/spreadsheets/d/1kApI3fZBqBqRx_egkx4BIGrWpoodAuyKd-e3lQ8CxMk';
 var query = 'select A,B';
 var queryEncoded = encodeURIComponent(query);
