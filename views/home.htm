@@ -10,8 +10,8 @@
   </thead>
   <tbody>
     <tr ng-repeat="score in forms">
-      <td><strong>{{ score.c[0].v }}</strong></td>
-      <td>{{ score.c[1].f }}</td>
+      <td><strong>{{ score.c[0].v + score.c[1].v }}</strong></td>
+      <td>{{ score.c[2].f }}</td>
     </tr>
   </tbody>
 </table>
