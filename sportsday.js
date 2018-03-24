@@ -119,6 +119,9 @@
     .when("/f/:formID",{
       templateUrl:"views/form.htm",
       controller:"form"
+    })
+    .when("/about",{
+      templateUrl:"views/about.htm"
     });
   });
 
