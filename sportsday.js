@@ -42,6 +42,141 @@
             name:"X"
           },
           total:"Y"
+        },
+        shot:{
+          a:{
+            pts:"AA",
+            name:"AB"
+          },
+          b:{
+            pts:"AD",
+            name:"AE"
+          },
+          c:{
+            pts:"AG",
+            name:"AH"
+          },
+          total:"AI"
+        },
+        javelin:{
+          a:{
+            pts:"AK",
+            name:"AL"
+          },
+          b:{
+            pts:"AN",
+            name:"AO"
+          },
+          c:{
+            pts:"AQ",
+            name:"AR"
+          },
+          total:"AS"
+        },
+        "100m":{
+          a:{
+            pts:"AU",
+            name:"AV"
+          },
+          b:{
+            pts:"AX",
+            name:"AY"
+          },
+          c:{
+            pts:"BA",
+            name:"BB"
+          },
+          total:"BC"
+        },
+        "200m":{
+          a:{
+            pts:"BE",
+            name:"BF"
+          },
+          b:{
+            pts:"BH",
+            name:"BI"
+          },
+          c:{
+            pts:"BK",
+            name:"BL"
+          },
+          total:"BM"
+        },
+        "300m":{
+          a:{
+            pts:"BO",
+            name:"BP"
+          },
+          b:{
+            pts:"BR",
+            name:"BS"
+          },
+          c:{
+            pts:"BU",
+            name:"BV"
+          },
+          total:"BW"
+        },
+        "800m":{
+          a:{
+            pts:"BY",
+            name:"BZ"
+          },
+          b:{
+            pts:"CB",
+            name:"CC"
+          },
+          c:{
+            pts:"CE",
+            name:"CF"
+          },
+          total:"CG"
+        },
+        "1500m":{
+          a:{
+            pts:"CI",
+            name:"CJ"
+          },
+          b:{
+            pts:"CL",
+            name:"CM"
+          },
+          c:{
+            pts:"CO",
+            name:"CP"
+          },
+          total:"CQ"
+        },
+        "4x300m":{
+          a:{
+            pts:"CS",
+            name:"CT"
+          },
+          b:{
+            pts:"CV",
+            name:"CW"
+          },
+          c:{
+            pts:"CY",
+            name:"CZ"
+          },
+          total:"DA"
+        },
+        "4x100m":{
+          a:{
+            pts:"DC",
+            name:"DD"
+          },
+          b:{
+            pts:"DF",
+            name:"DG"
+          },
+          c:{
+            pts:"DI",
+            name:"DJ"
+          },
+          total:"DK"
         }
       }
     }
@@ -195,18 +330,5 @@
       $scope.formActivities = formActivities;
     });
   });
-  
-  /*sd.controller('y7',function($scope,$http){
-    $http.get(sdBuildQuery("select #form#, #total# where #year# = 7 order by #total# desc limit 5",c.baseURL))
-    .then(function(res){
-      res = sdParseRes(res.data);
-      $scope.forms = res.table.rows;
-    });
-    $http.get(sdBuildQuery("select #form#,G,H,J,K,M,N,O where #year# = 7 order by O desc limit 5",c.baseURL))
-    .then(function(res){
-      res = sdParseRes(res.data);
-      $scope.long_jump = res.table.rows;
-    });
-  });*/
   
 }());
