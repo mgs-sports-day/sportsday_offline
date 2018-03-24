@@ -331,17 +331,4 @@
     });
   });
   
-  /*sd.controller('y7',function($scope,$http){
-    $http.get(sdBuildQuery("select #form#, #total# where #year# = 7 order by #total# desc limit 5",c.baseURL))
-    .then(function(res){
-      res = sdParseRes(res.data);
-      $scope.forms = res.table.rows;
-    });
-    $http.get(sdBuildQuery("select #form#,G,H,J,K,M,N,O where #year# = 7 order by O desc limit 5",c.baseURL))
-    .then(function(res){
-      res = sdParseRes(res.data);
-      $scope.long_jump = res.table.rows;
-    });
-  });*/
-  
 }());
