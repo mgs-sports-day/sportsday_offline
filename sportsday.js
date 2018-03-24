@@ -1,4 +1,5 @@
-/* jshint esversion:6*/
+// MGS Sports Day Website
+// https://github.com/tti0/sportsday
 
 (function(){
   "use strict";
@@ -181,14 +182,14 @@
       }
     }
   };
-  
+
   function sdParseRes(res){
     res = res.replace('/*O_o*/\ngoogle.visualization.Query.setResponse(','');
     res = res.slice(0, -2);
     res = JSON.parse(res);
     return res;
   }
-  
+
   function sdBuildQuery(string,base){
     string = string.replace(/(#)([^#]*)(#)/g, function(s){
       s = s.replace(/#/g,"");
@@ -197,7 +198,7 @@
     string = base + "&tq=" + encodeURIComponent(string);
     return string;
   }
-  
+
   function sdPrettifyName(string){
     string = string.split("_");
     for(var i = 0; i < string.length; i++){
@@ -206,7 +207,7 @@
     string = string.join(" ");
     return string;
   }
-  
+
   function sdPrettifyNameSem(string){
     switch(string){
       case "longjump":
@@ -217,7 +218,7 @@
         return string;
     }
   }
-  
+
   function sdPrettifyNameSpecial(string){
     switch(string){
       case "longjump":
@@ -232,7 +233,7 @@
         return string;
     }
   }
-  
+
   sd.config(function($routeProvider){
     $routeProvider
     .when("/",{
@@ -268,7 +269,7 @@
       $scope.all = res.table.rows;
     });
   });
-  
+
   sd.controller('activities',function($scope,$http){
     $http.get(sdBuildQuery("select A,B",c.listURL))
     .then(function(res){
@@ -276,7 +277,7 @@
       $scope.activities = res.table.rows;
     });
   });
-  
+
   sd.controller('activity',function($scope,$http,$routeParams){
     var activityName = $routeParams.activityID;
     $scope.activityName = sdPrettifyName(activityName);
@@ -289,7 +290,7 @@
       $scope.activity = res.table.rows;
     });
   });
-  
+
   sd.controller('forms',function($scope,$http){
     $http.get(sdBuildQuery("select #combined#,#total# order by #total# desc",c.baseURL))
     .then(function(res){
@@ -298,7 +299,7 @@
       $scope.forms = res.table.rows;
     });
   });
-  
+
   sd.controller('form',function($scope,$http,$routeParams){
     var formName = $routeParams.formID.replace('SLASH','/');
     $scope.formName = formName;
@@ -330,5 +331,5 @@
       $scope.formActivities = formActivities;
     });
   });
-  
+
 }());
