@@ -10,20 +10,31 @@
     <script src="lib/js/angular-route.js"></script>
     <!--Custom JS-->
     <script src="sportsday.js"></script>
+    <!--Custom styles-->
+    <link href="lib/css/colours.css" rel="stylesheet">
     <title>MGS Sports Day 2018</title>
   </head>
 
   <body ng-app="sdApp">
-    <nav class="navbar navbar-light">
-      <a class="navbar-brand">Sports Day 2018</a>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="#!">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="#!/y7">Year 7</a>
-        </li>
-      </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+      <a class="navbar-brand" href="#!">MGS Sports Day 2018</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#n-content">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="n-content">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="#!" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#!/activities" class="nav-link">Activities</a>
+          </li>
+          <li class="nav-item">
+            <a href="#!/forms" class="nav-link">Forms</a>
+          </li>
+        </ul>
+      </div>
     </nav>
     
     
@@ -31,5 +42,11 @@
     <div class="container">
       <div ng-view></div>
     </div>
+    
+    <!--Other JS libs-->
+    <script src="lib/js/jquery-3.2.1.min.js"></script>
+    <script src="lib/js/popper.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    
   </body>
 </html>

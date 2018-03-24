@@ -1,0 +1,21 @@
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#!">Home</a></li>
+    <li class="breadcrumb-item active">Activities</li>
+  </ol>
+</nav>
+
+<h3>All activities</h3>
+
+<table class="table table-striped">
+  <thead>
+    <th>Activity name</th>
+    <th>View</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="activity in activities">
+      <td><strong>{{ activity.c[0].v }}</strong></td>
+      <td><a class="btn btn-primary" ng-href="#!/a/{{ activity.c[1].v }}">View</a></td>
+    </tr>
+  </tbody>
+</table>

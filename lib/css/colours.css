@@ -1,0 +1,18 @@
+.c-gold{
+  background-color: gold;
+}
+.c-gold *{
+  background-color: gold;
+}
+.c-silver{
+  background-color: silver;
+}
+.c-silver *{
+  background-color: silver;
+}
+.c-bronze{
+  background-color: #CD7F32;
+}
+.c-bronze *{
+  background-color: #CD7F32;
+}

@@ -1,53 +1,74 @@
+/* jshint esversion:6*/
+
 (function(){
   "use strict";
   var sd = angular.module('sdApp',['ngRoute']);
 
   var c = {
-    baseURL: "https://docs.google.com/spreadsheets/d/1UqlAiZXbSTsfUIqK64ya_VMt-hW11P23Tw5o93OiZZI/gviz/tq",
+    baseURL: "https://docs.google.com/spreadsheets/d/15wn9g55Mg8P67-UDjg_QEcfMCR_A0v4dZ5sG19h__Kg/gviz/tq?gid=1608509347",
+    listURL: "https://docs.google.com/spreadsheets/d/15wn9g55Mg8P67-UDjg_QEcfMCR_A0v4dZ5sG19h__Kg/gviz/tq?gid=2146682450",
     t:{
-      summary:{
-        id:"1005036619",
-        cols:{
-          year:"A",
-          form:"B",
-          points:"C"
-        }
-      },
-      year7:"1802224452",
-      year8:"1858705415",
-      year9:"112112243",
-      year10:"398917913",
-      yearX:{
-        form:"A",
-        definer:"B",
-        overall:"C",
-        lj:{
-          A:"D",
-          B:"E",
-          C:"F",
-          total:"G"
-        },
-        hj:{
-          A:"H",
-          B:"I",
-          C:"J",
-          total:"K"
-        },
-        sh:{
-          A:"L",
-          B:"M",
-          C:"N",
+      year:"A",
+      form:"B",
+      total:"C",
+      d:{
+        long_jump:{
+          a:{
+            pts:"G",
+            name:"H"
+          },
+          b:{
+            pts:"J",
+            name:"K"
+          },
+          c:{
+            pts:"M",
+            name:"N"
+          },
           total:"O"
+        },
+        high_jump:{
+          a:{
+            pts:"Q",
+            name:"R"
+          },
+          b:{
+            pts:"T",
+            name:"U"
+          },
+          c:{
+            pts:"W",
+            name:"X"
+          },
+          total:"Y"
         }
       }
     }
   };
-
+  
   function sdParseRes(res){
     res = res.replace('/*O_o*/\ngoogle.visualization.Query.setResponse(','');
     res = res.slice(0, -2);
     res = JSON.parse(res);
     return res;
+  }
+  
+  function sdBuildQuery(string,base){
+    string = string.replace(/(#)([^#]*)(#)/g, function(s){
+      s = s.replace(/#/g,"");
+      return eval("c.t."+s);
+    });
+    string = base + "&tq=" + encodeURIComponent(string);
+    return string;
+  }
+  
+  function sdPrettifyName(string){
+    string = string.split("_");
+    for(var i = 0; i < string.length; i++){
+      string[i] = `${string[i][0].toUpperCase()}${string[i].slice(1)}`;
+    }
+    string = string.join(" ");
+    return string;
   }
   
   sd.config(function($routeProvider){
@@ -56,6 +77,14 @@
       templateUrl: "views/home.htm",
       controller: "home"
     })
+    .when("/activities",{
+      templateUrl: "views/activities.htm",
+      controller: "activities"
+    })
+    .when("/a/:activityID",{
+      templateUrl:"views/activity.htm",
+      controller: "activity"
+    })
     .when("/y7",{
       templateUrl: "views/y7.htm",
       controller: "y7"
@@ -63,36 +92,47 @@
   });
 
   sd.controller('home',function($scope,$http){
-    $http.get(c.baseURL+"?gid="+c.t.summary.id+"&tq="+encodeURIComponent("select "+c.t.summary.cols.year+","+c.t.summary.cols.form+","+c.t.summary.cols.points+" order by "+c.t.summary.cols.points+" desc limit 5"))
+    $http.get(sdBuildQuery("select #year#, #form#, #total# order by #total# desc",c.baseURL))
+    .then(function(res){
+      res = sdParseRes(res.data);
+      $scope.topfive = res.table.rows.slice(0,5);
+      $scope.all = res.table.rows;
+    });
+  });
+  
+  sd.controller('activities',function($scope,$http){
+    $http.get(sdBuildQuery("select A,B",c.listURL))
+    .then(function(res){
+      res = sdParseRes(res.data);
+      $scope.activities = res.table.rows;
+    });
+  });
+  
+  sd.controller('activity',function($scope,$http,$routeParams){
+    var activityName = $routeParams.activityID;
+    $scope.activityName = sdPrettifyName(activityName);
+    var cr = c.t.d[activityName];
+    var gets = [cr.a.pts,cr.a.name,cr.b.pts,cr.b.name,cr.c.pts,cr.c.name,cr.total];
+    var query = "select #year#,#form#,"+gets.join(",")+" order by "+cr.total+" desc";
+    $http.get(sdBuildQuery(query,c.baseURL))
+    .then(function(res){
+      res = sdParseRes(res.data);
+      console.log(res);
+      $scope.activity = res.table.rows;
+    });
+  });
+  
+  /*sd.controller('y7',function($scope,$http){
+    $http.get(sdBuildQuery("select #form#, #total# where #year# = 7 order by #total# desc limit 5",c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
       $scope.forms = res.table.rows;
     });
-  });
-
-  sd.controller('y7',function($scope,$http){
-    var arrays = {
-      lj:[]
-    };
-    $http.get(c.baseURL+"?gid="+c.t.year7+"&tq="+encodeURIComponent("select "+c.t.yearX.form+","+c.t.yearX.overall+" where "+c.t.yearX.definer+" = 'Pts' order by "+c.t.yearX.overall+" desc limit 5"))
+    $http.get(sdBuildQuery("select #form#,G,H,J,K,M,N,O where #year# = 7 order by O desc limit 5",c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
-      $scope.forms = res.table.rows;
+      $scope.long_jump = res.table.rows;
     });
-    $http.get(c.baseURL+"?gid="+c.t.year7+"&tq="+encodeURIComponent("select "+c.t.yearX.form+","+c.t.yearX.lj.total+","+c.t.yearX.lj.A+","+c.t.yearX.lj.B+","+c.t.yearX.lj.C+" order by "+c.t.yearX.lj.total)+" desc limit 5").then(function(res){
-      res = sdParseRes(res.data);
-      for(var i = 0; i < 5; i++){
-        arrays.lj.push(res.table.rows[i].c[0].v);
-      }
-      
-      $http.get(c.baseURL+"?gid="+c.t.year7+"&tq="+encodeURIComponent("select "+c.t.yearX.lj.A+","+c.t.yearX.lj.B+","+c.t.yearX.lj.C+" where ("+c.t.yearX.form+" = '"+arrays.lj.join("' or "+c.t.yearX.form+" = '")+"') and "+c.t.yearX.definer+" = 'Name'"))
-      .then(function(res){
-        res = sdParseRes(res.data);
-        console.log(res);
-      });
-      
-      console.log(c.baseURL+"?gid="+c.t.year7+"&tq="+"select "+c.t.yearX.lj.A+","+c.t.yearX.lj.B+","+c.t.yearX.lj.C+" where ("+c.t.yearX.form+" = '"+arrays.lj.join("' or "+c.t.yearX.form+" = '")+"') and "+c.t.yearX.definer+" = 'Name'");
-      
-    });
-  });
+  });*/
+  
 }());

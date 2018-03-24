@@ -23,8 +23,12 @@
     <th width="10%">Score</th>
   </thead>
   <tbody>
-    <tr ng-repeat="score in long_jump">
-      
+    <tr ng-repeat="score in long_jump | range:5">
+      <td><strong>{{ score.c[0].v }}</strong></td>
+      <td>{{ score.c[2].v }} ({{ score.c[1].v }})</td>
+      <td>{{ score.c[4].v }} ({{ score.c[3].v }})</td>
+      <td>{{ score.c[6].v }} ({{ score.c[5].v }})</td>
+      <td><strong>{{ score.c[7].v }}</strong></td>
     </tr>
   </tbody>
 </table>
