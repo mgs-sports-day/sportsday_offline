@@ -18,7 +18,7 @@
       <th width="10%">Score</th>
     </tr>
     <tr ng-repeat="score in activity" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
-      <td><strong>{{ score.c[0].v + score.c[1].v }}</strong></td>
+      <td><strong><a href="#!/f/{{ (score.c[0].v + score.c[1].v).replace('/','SLASH') }}">{{ score.c[0].v + score.c[1].v }}</a></strong></td>
       <td><em>{{ score.c[3].v }}</em> ({{ score.c[2].v }})</td>
       <td><em>{{ score.c[5].v }}</em> ({{ score.c[4].v }})</td>
       <td><em>{{ score.c[7].v }}</em> ({{ score.c[6].v }})</td>

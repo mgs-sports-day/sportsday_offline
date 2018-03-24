@@ -1,0 +1,25 @@
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#!">Home</a></li>
+    <li class="breadcrumb-item active">Forms</li>
+  </ol>
+</nav>
+
+<h3>All forms</h3>
+
+<table class="table">
+  <thead>
+    <th width="10%">Position</th>
+    <th>Form</th>
+    <th>Score</th>
+    <th width="10%">View</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="form in forms" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
+      <td><em>{{ $index + 1 }}</em></td>
+      <td><strong>{{ form.c[0].v }}</strong></td>
+      <td>{{ form.c[1].f }}</td>
+      <td><a ng-href="#!/f/{{ form.c[0].v.replace('/','SLASH') }}" class="btn btn-outline-dark">View</a></td>
+    </tr>
+  </tbody>
+</table>

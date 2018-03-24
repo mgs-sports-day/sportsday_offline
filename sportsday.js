@@ -11,6 +11,7 @@
       year:"A",
       form:"B",
       total:"C",
+      combined:"DL",
       d:{
         long_jump:{
           a:{
@@ -71,6 +72,32 @@
     return string;
   }
   
+  function sdPrettifyNameSem(string){
+    switch(string){
+      case "longjump":
+        return "long_jump";
+      case "highjump":
+        return "high_jump";
+      default:
+        return string;
+    }
+  }
+  
+  function sdPrettifyNameSpecial(string){
+    switch(string){
+      case "longjump":
+        return "Long Jump";
+      case "highjump":
+        return "High Jump";
+      case "shot":
+        return "Shot";
+      case "javelin":
+        return "Javelin";
+      default:
+        return string;
+    }
+  }
+  
   sd.config(function($routeProvider){
     $routeProvider
     .when("/",{
@@ -85,9 +112,13 @@
       templateUrl:"views/activity.htm",
       controller: "activity"
     })
-    .when("/y7",{
-      templateUrl: "views/y7.htm",
-      controller: "y7"
+    .when("/forms",{
+      templateUrl:"views/forms.htm",
+      controller:"forms"
+    })
+    .when("/f/:formID",{
+      templateUrl:"views/form.htm",
+      controller:"form"
     });
   });
 
@@ -117,8 +148,48 @@
     $http.get(sdBuildQuery(query,c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
-      console.log(res);
       $scope.activity = res.table.rows;
+    });
+  });
+  
+  sd.controller('forms',function($scope,$http){
+    $http.get(sdBuildQuery("select #combined#,#total# order by #total# desc",c.baseURL))
+    .then(function(res){
+      res = sdParseRes(res.data);
+      console.log(res);
+      $scope.forms = res.table.rows;
+    });
+  });
+  
+  sd.controller('form',function($scope,$http,$routeParams){
+    var formName = $routeParams.formID.replace('SLASH','/');
+    $scope.formName = formName;
+    var query = "select * where #combined# = '"+formName+"'";
+    $http.get(sdBuildQuery(query,c.baseURL))
+    .then(function(res){
+      res = sdParseRes(res.data);
+      console.log(res);
+      $scope.form = res.table.rows;
+      var formActivities = {};
+      for(var i = 0; i < res.table.cols.length; i++){
+        if(/(.*)(_)([^_]*)(_)(.*)/.test(res.table.cols[i].label)){
+          var col = res.table.cols[i].label;
+          col = col.split("_");
+          var colCat = col[0];
+          if(!formActivities[colCat]){
+            formActivities[colCat] = {
+              name:sdPrettifyNameSpecial(colCat),
+              sem_name:sdPrettifyNameSem(colCat)
+            };
+          }
+          if(res.table.rows[0].c[i]===null){
+            res.table.rows[0].c[i] = {v:"0"};
+          }
+          var name = col[1]+col[2];
+          formActivities[colCat][name] = res.table.rows[0].c[i].f || res.table.rows[0].c[i].v;
+        }
+      }
+      $scope.formActivities = formActivities;
     });
   });
   
