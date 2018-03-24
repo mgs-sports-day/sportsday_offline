@@ -1,0 +1,47 @@
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#!">Home</a></li>
+    <li class="breadcrumb-item"><a href="#!/forms">Forms</a></li>
+    <li class="breadcrumb-item active">{{ formName }}</li>
+  </ol>
+</nav>
+
+<h3>{{ formName }} <span class="text-muted">Stats</span></h3>
+
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td width="20%">Points</td>
+      <td><strong>{{ form[0].c[2].f }}</strong></td>
+    </tr>
+    <tr>
+      <td width="20%">Year position</td>
+      <td><strong>{{ form[0].c[3].f }}</strong></td>
+    </tr>
+    <tr>
+      <td width="20%">School position</td>
+      <td><strong>{{ form[0].c[4].f }}</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>{{ formName }} <span class="text-muted">All activities</span></h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th width="10%">Activity</th>
+      <th width="27%">A</th>
+      <th width="27%">B</th>
+      <th width="27%">C</th>
+      <th width="10%">Score</th>
+    </tr>
+    <tr ng-repeat="activity in formActivities" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
+      <td><strong><a ng-href="#!/a/{{ activity.sem_name }}">{{ activity.name }}</a></strong></td>
+      <td><em>{{ activity.aname }}</em> ({{ activity.apts }})</td>
+      <td><em>{{ activity.bname }}</em> ({{ activity.bpts }})</td>
+      <td><em>{{ activity.cname }}</em> ({{ activity.cpts }})</td>
+      <td><strong>{{ activity.ptstotal }}</strong></td>
+    </tr>
+  </thead>
+</table>

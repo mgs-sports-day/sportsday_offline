@@ -1,0 +1,28 @@
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#!">Home</a></li>
+    <li class="breadcrumb-item"><a href="#!/activities">Activities</a></li>
+    <li class="breadcrumb-item active">{{ activityName }}</li>
+  </ol>
+</nav>
+
+<h3>{{ activityName }} <span class="text-muted">All forms</span></h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th width="10%">Form</th>
+      <th width="27%">A</th>
+      <th width="27%">B</th>
+      <th width="27%">C</th>
+      <th width="10%">Score</th>
+    </tr>
+    <tr ng-repeat="score in activity" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
+      <td><strong><a href="#!/f/{{ (score.c[0].v + score.c[1].v).replace('/','SLASH') }}">{{ score.c[0].v + score.c[1].v }}</a></strong></td>
+      <td><em>{{ score.c[3].v }}</em> ({{ score.c[2].v }})</td>
+      <td><em>{{ score.c[5].v }}</em> ({{ score.c[4].v }})</td>
+      <td><em>{{ score.c[7].v }}</em> ({{ score.c[6].v }})</td>
+      <td><strong>{{ score.c[8].v }}</strong></td>
+    </tr>
+  </thead>
+</table>

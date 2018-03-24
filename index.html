@@ -1,93 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
   <head>
-
-    <title>MGS Sports Day: Home</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap-->
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <!--AngularJS+router-->
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/angular-route.js"></script>
+    <!--Custom JS-->
+    <script src="sportsday.js"></script>
+    <!--Custom styles-->
+    <link href="lib/css/colours.css" rel="stylesheet">
+    <title>MGS Sports Day 2018</title>
   </head>
 
-  <body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-     <a class="navbar-brand" href="index.html">
-       <img src="lib/img/mgs_white_logo_1066x631px.png" alt="MGS Logo" style="width:60px;">
-       Sports Day 2018
-     </a>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-       <ul class="navbar-nav">
-         <li class="nav-text">
-           <button id="manual-refresh" class="btn btn-success" type="submit">Refresh live data</button>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="index.html">Home</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="results.html">Live Results</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="competitors.html">Live Competitors</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="photos.html">Photos</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="about.html">About</a>
-         </li>
-       </ul>
-     </div>
-    </nav>
-    <!-- /NAVBAR -->
-
-    <div class="container">
-      <br>
-      <h1>MGS Sports Day: Home</h1>
-      <img src="lib/img/mgs_sport_logo_457x457px.png" alt="MGS Sport Logo" style="height:13%;width:13%;margin:0.8em;" align="left">
-      <p>Welcome to the MGS Senior Sports Day Website for 2018. On this site, you can view results in real time, view events in real time, and find out when it's time for you to compete.</p>
-      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#explanation">Click me to show more info...</button>
-      <div id="explanation" class="collapse">
-        <p>To use this site, your device must support HTML5, CSS3 and JavaScript. Most modern smart devices (including most mobile phones) made after 2013 have this functionality. If no data shows in the "Current site status" area below, your device is not supported.</p>
-        <p>All pages on this site re-load their data automatically every 30 seconds. A countdown is displayed showing time until the next refresh. If you want to refresh the data manually, click the green button at the top of every page (in the menu on mobile devices). To keep data usage down, only the live data is reloaded every 30 seconds, or when the button is clicked, rather than the entire website. Therefore, if you just want the latest data, press the green button, not your web browser's refresh button.</p>
-        <p>It is intended for use only on Sports Day, and will be deactivated before and afterwards. This year, MGS Senior Sports Day will fall on <strong>4th July 2018</strong>. You can view the current activation status of parts of the site below.</p>
-        <p>This site is developed internally by The Manchester Grammar School, and is a joint venture between the Computer Science and PE departments. Please read the <a href="about.html">About page</a> for further information.</p>
+  <body ng-app="sdApp">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+      <a class="navbar-brand" href="#!">MGS Sports Day 2018</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#n-content">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="n-content">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="#!" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#!/activities" class="nav-link">Activities</a>
+          </li>
+          <li class="nav-item">
+            <a href="#!/forms" class="nav-link">Forms</a>
+          </li>
+        </ul>
       </div>
-      <table class="table">
-        <thead>
-          <tr class="thead-light">
-            <th colspan="2" id="timer-lbl">Current site status (reloading in X seconds)</th>
-          </tr>
-          <tr>
-            <th>Page</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Live Results</td>
-            <td id="results-container"><div class="alert alert-warning"><strong>Error!</strong></div></td>
-          </tr>
-          <tr>
-            <td>Live Competitors</td>
-            <td id="compets-container"><div class="alert alert-warning"><strong>Error!</strong></div></td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <span class="text-muted">This website is part of a family of co-curricular sites run by students and staff of the Manchester Grammar School. The main school website is at <a href="http://mgs.org">mgs.org</a>.</span>
-      <br><span class="text-muted">Site developed by Theodore Tucker (2018).</span>
+    </nav>
+    
+    
+    <!--Views are loaded here-->
+    <div class="container">
+      <div ng-view></div>
     </div>
-
+    
+    <!--Other JS libs-->
+    <script src="lib/js/jquery-3.2.1.min.js"></script>
+    <script src="lib/js/popper.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    
   </body>
-
-  <script src="lib/js/jquery-3.2.1.min.js"></script>
-  <script src="lib/js/popper.min.js"></script>
-  <script src="lib/js/bootstrap.min.js"></script>
-  <script src="lib/js/pluralize.min.js"></script>
-  <script src="index.js"></script>
-
 </html>
