@@ -6,27 +6,28 @@
 </nav>
 
 <h3>About</h3>
-<p> This website was developed to allow spectators of the Manchester Grammar School's annual Senior Sports Day to view results, events, and competitors in these events. It is a collaborative effort between the Computer Science and PE departments of the school, the staff responsible in each department being Mr D Millington and Mr T Grainger respectively. It is hoped that students, parents and staff will find this website beneficial. It works by fetching score and competitor data from a Google Drive spreadsheet, and displaying it in an easy-to-use and clear fashion. </p>
+<p>This website was developed to allow spectators of the Manchester Grammar School's annual Senior Sports Day to view results, events, and competitors in these events. It is a collaborative effort between the Computer Science and PE departments of the school, the staff responsible in each department being Mr D Millington and Mr T Grainger respectively. It is hoped that students, parents and staff will find this website beneficial. It works by fetching score and competitor data from a Google Drive spreadsheet, and displaying it in an easy-to-use and clear fashion.</p>
 
 <h3>How it works</h3>
 <p>This website is powered by Angular.JS and Google Sheets. We query a Google Sheet with lots of live data in it every time a page is loaded, using an <code>XMLHttpRequest();</code>. (For the curious, the full, public Google Sheet is avaliable here: <a href="https://goo.gl/rekTwr">https://goo.gl/rekTwr</a>.) The Google Sheets API is somewhat difficult to work with, so some "de-Google-ification" needs to take place to the data returned. We then use various algorithms to compile the data into neatly laid-out tables, cross-referencing each other for easy navigation. The website is styled by Bootstrap. It's made to be as compact as possible so that it loads quickly on phones and doesn't use up 'too much data'. It's entirely responsive, and was tested mobile-first.</p>
 
 <h3>Development Credits</h3>
 <p>This website was developed by Theodore Tucker, a student of the Manchester Grammar School, under the guidance of Mr D Millington, the Head of Computer Science. This project is open source, and source code is available at the GitHub repository here: <a href="https://github.com/tti0/sportsday">https://github.com/tti0/sportsday</a>. By using this site, you understand that it is licensed under the terms of the GNU General Public License v3.0 (<a href="https://www.gnu.org/licenses/gpl-3.0.txt">https://www.gnu.org/licenses/gpl-3.0.txt</a>), agree to these terms, and thus understand that NO WARRANTY WHATSOEVER is provided.</p>
-<p>The development of this website would not be possible without the following open-source libraries and platforms:</p>
+<p>The development of this website would not be possible without the following open-source libraries and platforms: <br> <em>Libraries marked <code>*CDN*</code> in the list below are loaded from CDNs. All other site dependencies are loaded locally.</em></p>
 <ul>
+  <li>jQuery v3.3.1 <code>*CDN*</code> - JavaScript library for scripting simplification (<a href="https://jquery.com/">https://jquery.com/</a>).</li>
   <li>AngularJS v1.6.9 - Frontend web app framework (<a href="https://angularjs.org/">https://angularjs.org/</a>).</li>
-  <li>Boostrap v4.0 - CSS framework (<a href="http://getbootstrap.com/">http://getbootstrap.com/</a>).</li>
-  <li>Popper.JS - JavaScript library for pop-up handling (<a href="https://popper.js.org/">https://popper.js.org/</a>).</li>
+  <li>Boostrap v4.0 <code>*CDN*</code> - CSS framework (<a href="http://getbootstrap.com/">http://getbootstrap.com/</a>).</li>
+  <li>Popper.JS <code>*CDN*</code> - JavaScript library for pop-up handling (<a href="https://popper.js.org/">https://popper.js.org/</a>).</li>
   <li>Pluralize - JavaScript library to handle singular and plural noun forms depending on context (<a href="http://www.oranlooney.com/js-plural/">http://www.oranlooney.com/js-plural/</a>).</li>
   <li>Google Visualization API Query Language - API to handle requests from the Google Sheet (<a href="https://developers.google.com/chart/interactive/docs/querylanguage">https://developers.google.com/chart/interactive/docs/querylanguage</a>).</li>
 </ul>
-<p>Nor would development be possible without the excellent assistance (and patience) of Pal Kerecsenyi, also an MGS student, (<a href="https://github.com/palkerecsenyi">https://github.com/palkerecsenyi</a>) in debugging and testing Angualar and JavaScript code.</p>
+<p>Nor would development be possible without the excellent assistance of Pal Kerecsenyi, also an MGS student, (<a href="https://github.com/palkerecsenyi">https://github.com/palkerecsenyi</a>) in debugging and testing Angualar and JavaScript code.</p>
 <h3>Copyright</h3>
 <p>This work is copyright (&copy;) Theodore Tucker, 2018. It is licensed for re-use and modification under the terms of the GNU General Public License v3.0 (<a href="https://www.gnu.org/licenses/gpl-3.0.txt">https://www.gnu.org/licenses/gpl-3.0.txt</a>). The copyright of all images used on the site remains with the original photographer, or the Manchester Grammar School.</p>
 <h3>Privacy</h3>
 <p>This site uses the service Google Analytics to collect information about those who visit it. We advise that all users read the Google Analytics Privacy and Cookie policy here: <a href="http://www.google.com/policies/privacy/partners/">http://www.google.com/policies/privacy/partners/</a>. If you do not want this information to be collected by us, please install the official Google Analytics opt-out extension here: <a href= "https://tools.google.com/dlpage/gaoptout">https://tools.google.com/dlpage/gaoptout</a>.</p>
 <h3>Contact</h3>
-<p>Please direct all enquiries to Mr Daniel Millington, Head of Computer Science at the Manchester Grammar School.</p>
-<p>Email: <a href="mailto:d.e.millington@mgs.org">d.e.millington@mgs.org</a></p>
-<p>Telephone: (+44) 0161 224 7201 ext. 467</p>
+<p>Please direct all enquiries to Mr Daniel Millington, Head of Computer Science at the Manchester Grammar School.<br>
+Email: <a href="mailto:d.e.millington@mgs.org">d.e.millington@mgs.org</a><br>
+Telephone: (+44) 0161 224 7201 ext. 467</p>
