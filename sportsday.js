@@ -296,7 +296,7 @@
   });
 
   sd.controller('forms',function($scope,$http){
-    $http.get(sdBuildQuery("select #combined#,#total# order by #total# desc",c.baseURL))
+    $http.get(sdBuildQuery("select #year#, #form#, #total#, #schoolpos#, #yearpos#",c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
       console.log(res);
