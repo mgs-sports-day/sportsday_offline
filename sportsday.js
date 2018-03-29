@@ -1,3 +1,5 @@
+/* jshint esversion:6*/
+
 // MGS Sports Day Website
 // https://github.com/tti0/sportsday
 
