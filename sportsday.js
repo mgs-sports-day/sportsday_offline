@@ -14,6 +14,8 @@
       year:"A",
       form:"B",
       total:"C",
+      yearpos:"D",
+      schoolpos:"E",
       combined:"DL",
       d:{
         long_jump:{
@@ -264,7 +266,7 @@
   });
 
   sd.controller('home',function($scope,$http){
-    $http.get(sdBuildQuery("select #year#, #form#, #total# order by #total# desc",c.baseURL))
+    $http.get(sdBuildQuery("select #year#, #form#, #total#, #schoolpos# order by #total# desc",c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
       $scope.topfive = res.table.rows.slice(0,5);
