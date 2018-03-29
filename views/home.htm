@@ -20,18 +20,18 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th width="10%">Position</th>
+          <th width="15%">School position</th>
           <th>Form</th>
-          <th>Score</th>
-          <th width="10%">View</th>
+          <th>Total points</th>
+          <th width="15%">View</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="score in topfive" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
-          <td><em>{{ $index + 1}}</em></td>
+          <td>{{ $index + 1 }}</td>
           <td><strong>{{ score.c[0].v + score.c[1].v }}</strong></td>
           <td>{{ score.c[2].f }}</td>
-          <td><a ng-href="#!/f/{{ (score.c[0].v + score.c[1].v).replace('/','SLASH') }}" class="btn btn-outline-dark">View</a></td>
+          <td><a ng-href="#!/f/{{ (score.c[0].v + score.c[1].v).replace('/','SLASH') }}" class="btn btn-outline-dark">View form</a></td>
         </tr>
       </tbody>
     </table>
@@ -41,18 +41,18 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th width="10%">Position</th>
+          <th width="15%">School position</th>
           <th>Form</th>
-          <th>Score</th>
-          <th width="10%">Score</th>
+          <th>Total points</th>
+          <th width="15%">View</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="score in all" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
-          <td><em>{{ $index + 1 }}</em></td>
+          <td>{{ $index + 1 }}</td>
           <td><strong>{{ score.c[0].v + score.c[1].v }}</strong></td>
           <td>{{ score.c[2].f }}</td>
-          <td><a ng-href="#!/f/{{ (score.c[0].v + score.c[1].v).replace('/','SLASH') }}" class="btn btn-outline-dark">View</a></td>
+          <td><a ng-href="#!/f/{{ (score.c[0].v + score.c[1].v).replace('/','SLASH') }}" class="btn btn-outline-dark">View form</a></td>
         </tr>
       </tbody>
     </table>
