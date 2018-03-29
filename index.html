@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Bootstrap-->
     <link href="lib/css/bootstrap.min.css" rel="stylesheet">
-    <!--AngularJS+router-->
+    <!--AngularJS and router-->
     <script src="lib/js/angular.min.js"></script>
     <script src="lib/js/angular-route.js"></script>
     <!--Custom JS-->
@@ -17,11 +17,14 @@
 
   <body ng-app="sdApp">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
-      <a class="navbar-brand" href="#!">MGS Sports Day 2018</a>
+      <a class="navbar-brand" href="#!">
+        <img src="lib/img/mgs_white_logo_1066x631px.png" alt="MGS Logo" style="width:60px;">
+        Sports Day 2018
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#n-content">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <div class="collapse navbar-collapse" id="n-content">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
@@ -39,17 +42,19 @@
         </ul>
       </div>
     </nav>
-    
-    
+
+
     <!--Views are loaded here-->
     <div class="container">
       <div ng-view></div>
+      <hr>
+      <span class="text-muted">This website is part of a family of co-curricular sites run by students and staff of the Manchester Grammar School. The main school website is at <a href="http://mgs.org">mgs.org</a>.</span>
     </div>
-    
+
     <!--Other JS libs-->
     <script src="lib/js/jquery-3.2.1.min.js"></script>
     <script src="lib/js/popper.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
-    
+
   </body>
 </html>

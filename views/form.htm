@@ -36,7 +36,7 @@
       <th width="27%">C</th>
       <th width="10%">Score</th>
     </tr>
-    <tr ng-repeat="activity in formActivities" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
+    <tr ng-repeat="activity in formActivities">
       <td><strong><a ng-href="#!/a/{{ activity.sem_name }}">{{ activity.name }}</a></strong></td>
       <td><em>{{ activity.aname }}</em> ({{ activity.apts }})</td>
       <td><em>{{ activity.bname }}</em> ({{ activity.bpts }})</td>
