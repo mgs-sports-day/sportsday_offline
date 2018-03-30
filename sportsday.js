@@ -6,6 +6,7 @@
 (function(){
   "use strict";
   var sd = angular.module('sdApp',['ngRoute']);
+  angular.module('app', ['ngSanitize']);
 
   var c = {
     baseURL: "https://docs.google.com/spreadsheets/d/15wn9g55Mg8P67-UDjg_QEcfMCR_A0v4dZ5sG19h__Kg/gviz/tq?gid=1608509347",
@@ -347,9 +348,7 @@
     $http.get(sdBuildQuery("select A, B order by A desc",c.newsURL))
     .then(function(res){
       res = sdParseRes(res.data);
-      console.log(res);
       $scope.newsitems = res.table.rows;
-      console.log($scope.newsitems);
     });
   });
 
