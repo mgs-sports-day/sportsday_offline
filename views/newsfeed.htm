@@ -6,3 +6,8 @@
 </nav>
 
 <h3><i class="fas fa-newspaper"></i> Newsfeed</h3>
+
+<ul ng-repeat="newsitems in newsfeed" class="list-group">
+  <li class="list-group-item">{{ newsitems.c[1].v }}</li>
+  <li class="list-group-item list-group-item-secondary"><em>Timestamp: {{ newsitems.c[0].f }}</em></li>
+</ul>
