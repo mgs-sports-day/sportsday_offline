@@ -296,11 +296,15 @@
   });
 
   sd.controller('forms',function($scope,$http){
-    $http.get(sdBuildQuery("select #year#, #form#, #total#, #schoolpos#, #yearpos#",c.baseURL))
+    $http.get(sdBuildQuery("select #year#, #form#, #total#, #schoolpos#, #yearpos#, #combined#",c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
       console.log(res);
       $scope.forms = res.table.rows;
+      $scope.year7 = res.table.rows.slice(0,8);
+      $scope.year8 = res.table.rows.slice(8,16);
+      $scope.year9 = res.table.rows.slice(16,24);
+      $scope.year10 = res.table.rows.slice(24,33);
     });
   });
 
