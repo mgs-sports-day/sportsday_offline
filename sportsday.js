@@ -299,12 +299,11 @@
     $http.get(sdBuildQuery("select #year#, #form#, #total#, #schoolpos#, #yearpos#, #combined#",c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
-      console.log(res);
       $scope.forms = res.table.rows;
       $scope.year7 = res.table.rows.slice(0,8);
       $scope.year8 = res.table.rows.slice(8,16);
       $scope.year9 = res.table.rows.slice(16,24);
-      $scope.year10 = res.table.rows.slice(24,33);
+      $scope.year10 = res.table.rows.slice(24,33); //year 10 has 9 forms, not 8
     });
   });
 
@@ -315,7 +314,6 @@
     $http.get(sdBuildQuery(query,c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
-      console.log(res);
       $scope.form = res.table.rows;
       var formActivities = {};
       for(var i = 0; i < res.table.cols.length; i++){
@@ -330,7 +328,7 @@
             };
           }
           if(res.table.rows[0].c[i]===null){
-            res.table.rows[0].c[i] = {v:"0"};
+            res.table.rows[0].c[i] = {v:""};
           }
           var name = col[1]+col[2];
           formActivities[colCat][name] = res.table.rows[0].c[i].f || res.table.rows[0].c[i].v;
