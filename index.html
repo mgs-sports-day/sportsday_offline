@@ -3,17 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--Bootstrap-->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--AngularJS and router-->
-    <script src="lib/js/angular.min.js"></script>
-    <script src="lib/js/angular-route.min.js"></script>
-    <script src="lib/js/angular-sanitize.min.js"></script>
-    <!--Custom JS-->
-    <script src="sportsday.js"></script>
-    <!--Custom styles-->
+    <!-- Custom styles -->
     <link href="lib/css/colours.css" rel="stylesheet">
-    <!--favicon-->
+    <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <title>MGS Sports Day 2018</title>
   </head>
@@ -49,14 +43,23 @@
       </div>
     </nav>
 
-    <!--Views are loaded here-->
     <div class="container">
-      <div ng-view></div>
+      <div id="timer-lbl" class="alert alert-secondary"></div> <!-- timer is loaded here -->
+      <div ng-view></div> <!-- views are loaded here -->
       <hr>
       <span class="text-muted">This website is part of a family of co-curricular sites run by students and staff of the Manchester Grammar School. The main school website is at <a href="http://mgs.org">mgs.org</a>.</span>
     </div>
 
-    <!--Other JS libs-->
+    <!-- AngularJS -->
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/angular-route.min.js"></script>
+    <script src="lib/js/angular-sanitize.min.js"></script>
+    <!-- Pluralize -->
+    <script src="lib/js/pluralize.min.js"></script>
+    <!-- Main custom JS -->
+    <script src="sportsday.js"></script>
+    <script src="lib/js/mytimer.js"></script>
+    <!-- Other JS libs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
