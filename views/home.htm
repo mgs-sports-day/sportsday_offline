@@ -29,7 +29,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="score in topfive" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
+        <tr ng-repeat="score in topfive" ng-class="{'c-gold':score.c[3].f==1,'c-silver':score.c[3].f==2,'c-bronze':score.c[3].f==3}">
           <td>{{ score.c[3].f }}</td>
           <td>{{ score.c[0].v + score.c[1].v }}</td>
           <td>{{ score.c[2].f }}</td>
@@ -50,7 +50,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="score in all" ng-class="{'c-gold' : $index==0, 'c-silver': $index==1, 'c-bronze' : $index==2}">
+        <tr ng-repeat="score in all" ng-class="{'c-gold':score.c[3].f==1,'c-silver':score.c[3].f==2,'c-bronze':score.c[3].f==3}">
           <td>{{ score.c[3].f }}</td>
           <td>{{ score.c[0].v + score.c[1].v }}</td>
           <td>{{ score.c[2].f }}</td>

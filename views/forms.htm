@@ -19,7 +19,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="form in forms">
-      <td>{{ form.c[0].v + form.c[1].v}}</td>
+      <td>{{ form.c[0].v + form.c[1].v }}</td>
       <td ng-class="{'c-gold':form.c[3].f==1,'c-silver':form.c[3].f==2,'c-bronze':form.c[3].f==3}">{{ form.c[3].f }}</td>
       <td ng-class="{'c-gold':form.c[4].f==1,'c-silver':form.c[4].f==2,'c-bronze':form.c[4].f==3}">{{ form.c[4].f }}</td>
       <td>{{ form.c[2].f }}</td>

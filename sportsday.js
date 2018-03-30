@@ -275,7 +275,7 @@
   });
 
   sd.controller('activities',function($scope,$http){
-    $http.get(sdBuildQuery("select A,B",c.listURL))
+    $http.get(sdBuildQuery("select A, B",c.listURL))
     .then(function(res){
       res = sdParseRes(res.data);
       $scope.activities = res.table.rows;
