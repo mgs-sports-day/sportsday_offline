@@ -260,6 +260,10 @@
       templateUrl:"views/form.htm",
       controller:"form"
     })
+    .when("/newsfeed",{
+      templateUrl:"views/newsfeed.htm",
+      controller:"newsfeed"
+    })
     .when("/about",{
       templateUrl:"views/about.htm"
     });
@@ -336,6 +340,10 @@
       }
       $scope.formActivities = formActivities;
     });
+  });
+
+  sd.controller('newsfeed',function($scope,$http){
+    alert("It works!");
   });
 
 }());
