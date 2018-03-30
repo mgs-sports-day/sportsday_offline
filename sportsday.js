@@ -349,6 +349,7 @@
       res = sdParseRes(res.data);
       console.log(res);
       $scope.newsitems = res.table.rows;
+      console.log($scope.newsitems);
     });
   });
 
