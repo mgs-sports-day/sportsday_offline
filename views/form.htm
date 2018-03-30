@@ -66,13 +66,13 @@
         <tr ng-repeat="activity in formActivities">
           <td><a ng-href="#!/a/{{ activity.sem_name }}">{{ activity.name }}</a></td>
           <td>{{ activity.aname }}</td>
-          <td>{{ activity.apos }}</td>
+          <td ng-class="{'c-gold':activity.apos==1,'c-silver':activity.apos==2,'c-bronze':activity.apos==3}">{{ activity.apos }}</td>
           <td>{{ activity.apts }}</td>
           <td>{{ activity.bname }}</td>
-          <td>{{ activity.bpos }}</td>
+          <td ng-class="{'c-gold':activity.bpos==1,'c-silver':activity.bpos==2,'c-bronze':activity.bpos==3}">{{ activity.bpos }}</td>
           <td>{{ activity.bpts }}</td>
           <td>{{ activity.cname }}</td>
-          <td>{{ activity.cpos }}</td>
+          <td ng-class="{'c-gold':activity.cpos==1,'c-silver':activity.cpos==2,'c-bronze':activity.cpos==3}">{{ activity.cpos }}</td>
           <td>{{ activity.cpts }}</td>
           <td>{{ activity.ptstotal }}</td>
         </tr>
