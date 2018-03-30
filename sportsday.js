@@ -8,9 +8,9 @@
   var sd = angular.module('sdApp',['ngRoute']);
 
   var c = {
-    baseURL: "https://docs.google.com/spreadsheets/d/15wn9g55Mg8P67-UDjg_QEcfMCR_A0v4dZ5sG19h__Kg/gviz/tq?gid=1608509347",
-    listURL: "https://docs.google.com/spreadsheets/d/15wn9g55Mg8P67-UDjg_QEcfMCR_A0v4dZ5sG19h__Kg/gviz/tq?gid=2146682450",
-    newsURL: "https://docs.google.com/spreadsheets/d/15wn9g55Mg8P67-UDjg_QEcfMCR_A0v4dZ5sG19h__Kg/gviz/tq?gid=979864642",
+    baseURL: "https://docs.google.com/spreadsheets/d/142LTpoXYgJCnx8IB-jBSHyEqPNeo9Z7rDY1h_u3mb-g/gviz/tq?gid=1608509347",
+    listURL: "https://docs.google.com/spreadsheets/d/142LTpoXYgJCnx8IB-jBSHyEqPNeo9Z7rDY1h_u3mb-g/gviz/tq?gid=2146682450",
+    newsURL: "https://docs.google.com/spreadsheets/d/142LTpoXYgJCnx8IB-jBSHyEqPNeo9Z7rDY1h_u3mb-g/gviz/tq?gid=979864642",
     t:{
       year:"A",
       form:"B",
