@@ -9,13 +9,13 @@
 
 <table class="table table-striped">
   <thead>
-    <th>Activity name</th>
-    <th style="text-align: right;">View</th>
+    <th width="80%">Activity name</th>
+    <th width="20%">View</th>
   </thead>
   <tbody>
     <tr ng-repeat="activity in activities">
-      <td><strong>{{ activity.c[0].v }}</strong></td>
-      <td style="text-align: right;"><a class="btn btn-primary" ng-href="#!/a/{{ activity.c[1].v }}">View</a></td>
+      <td>{{ activity.c[0].v }}</td>
+      <td><a ng-href="#!/a/{{ activity.c[1].v }}" class="btn btn-outline-dark">View activity</a></td>
     </tr>
   </tbody>
 </table>

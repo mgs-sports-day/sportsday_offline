@@ -22,14 +22,17 @@
       d:{
         long_jump:{
           a:{
+            pos:"F",
             pts:"G",
             name:"H"
           },
           b:{
+            pos:"I",
             pts:"J",
             name:"K"
           },
           c:{
+            pos:"L",
             pts:"M",
             name:"N"
           },
@@ -37,14 +40,17 @@
         },
         high_jump:{
           a:{
+            pos:"P",
             pts:"Q",
             name:"R"
           },
           b:{
+            pos:"S",
             pts:"T",
             name:"U"
           },
           c:{
+            pos:"V",
             pts:"W",
             name:"X"
           },
@@ -52,14 +58,17 @@
         },
         shot:{
           a:{
+            pos:"Z",
             pts:"AA",
             name:"AB"
           },
           b:{
+            pos:"AC",
             pts:"AD",
             name:"AE"
           },
           c:{
+            pos:"AF",
             pts:"AG",
             name:"AH"
           },
@@ -67,14 +76,17 @@
         },
         javelin:{
           a:{
+            pos:"AJ",
             pts:"AK",
             name:"AL"
           },
           b:{
+            pos:"AM",
             pts:"AN",
             name:"AO"
           },
           c:{
+            pos:"AP",
             pts:"AQ",
             name:"AR"
           },
@@ -82,14 +94,17 @@
         },
         "100m":{
           a:{
+            pos:"AT",
             pts:"AU",
             name:"AV"
           },
           b:{
+            pos:"AW",
             pts:"AX",
             name:"AY"
           },
           c:{
+            pos:"AZ",
             pts:"BA",
             name:"BB"
           },
@@ -97,14 +112,17 @@
         },
         "200m":{
           a:{
+            pos:"BD",
             pts:"BE",
             name:"BF"
           },
           b:{
+            pos:"BG",
             pts:"BH",
             name:"BI"
           },
           c:{
+            pos:"BJ",
             pts:"BK",
             name:"BL"
           },
@@ -112,14 +130,17 @@
         },
         "300m":{
           a:{
+            pos:"BN",
             pts:"BO",
             name:"BP"
           },
           b:{
+            pos:"BQ",
             pts:"BR",
             name:"BS"
           },
           c:{
+            pos:"BT",
             pts:"BU",
             name:"BV"
           },
@@ -127,14 +148,17 @@
         },
         "800m":{
           a:{
+            pos:"BX",
             pts:"BY",
             name:"BZ"
           },
           b:{
+            pos:"CA",
             pts:"CB",
             name:"CC"
           },
           c:{
+            pos:"CD",
             pts:"CE",
             name:"CF"
           },
@@ -142,14 +166,17 @@
         },
         "1500m":{
           a:{
+            pos:"CH",
             pts:"CI",
             name:"CJ"
           },
           b:{
+            pos:"CK",
             pts:"CL",
             name:"CM"
           },
           c:{
+            pos:"CN",
             pts:"CO",
             name:"CP"
           },
@@ -157,14 +184,17 @@
         },
         "4x300m":{
           a:{
+            pos:"CR",
             pts:"CS",
             name:"CT"
           },
           b:{
+            pos:"CU",
             pts:"CV",
             name:"CW"
           },
           c:{
+            pos:"CX",
             pts:"CY",
             name:"CZ"
           },
@@ -172,14 +202,17 @@
         },
         "4x100m":{
           a:{
+            pos:"DB",
             pts:"DC",
             name:"DD"
           },
           b:{
+            pos:"DE",
             pts:"DF",
             name:"DG"
           },
           c:{
+            pos:"DH",
             pts:"DI",
             name:"DJ"
           },
@@ -292,12 +325,16 @@
     var activityName = $routeParams.activityID;
     $scope.activityName = sdPrettifyName(activityName);
     var cr = c.t.d[activityName];
-    var gets = [cr.a.pts,cr.a.name,cr.b.pts,cr.b.name,cr.c.pts,cr.c.name,cr.total];
-    var query = "select #year#,#form#,"+gets.join(",")+" order by "+cr.total+" desc";
+    var gets = [cr.a.pos,cr.a.pts,cr.a.name,cr.b.pos,cr.b.pts,cr.b.name,cr.c.pos,cr.c.pts,cr.c.name,cr.total];
+    var query = "select #year#, #form#, "+gets.join(",")+"";
     $http.get(sdBuildQuery(query,c.baseURL))
     .then(function(res){
       res = sdParseRes(res.data);
-      $scope.activity = res.table.rows;
+      $scope.activities = res.table.rows;
+      $scope.year7 = res.table.rows.slice(0,8);
+      $scope.year8 = res.table.rows.slice(8,16);
+      $scope.year9 = res.table.rows.slice(16,24);
+      $scope.year10 = res.table.rows.slice(24,33); //year 10 has 9 forms, not 8
     });
   });
 
@@ -345,7 +382,7 @@
   });
 
   sd.controller('newsfeed',function($scope,$http){
-    $http.get(sdBuildQuery("select A, B order by A desc",c.newsURL))
+    $http.get(sdBuildQuery("select A, B order by A desc",c.newsURL)) //A is the timestamp, B is the post - plaintext only
     .then(function(res){
       res = sdParseRes(res.data);
       $scope.newsitems = res.table.rows;
