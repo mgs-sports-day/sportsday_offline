@@ -1,6 +1,6 @@
 # MGS Sports Day 2018 :: Public Results Viewer
 
-*This site is currently very unstable.*
+*This site is currently stable, but is using testing data.*
 
 **Live version is avaliable at https://tti0.github.io/sportsday/.**
 

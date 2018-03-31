@@ -1,17 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--Bootstrap-->
-    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
-    <!--AngularJS and router-->
-    <script src="lib/js/angular.min.js"></script>
-    <script src="lib/js/angular-route.js"></script>
-    <!--Custom JS-->
-    <script src="sportsday.js"></script>
-    <!--Custom styles-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom styles -->
     <link href="lib/css/colours.css" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <title>MGS Sports Day 2018</title>
   </head>
 
@@ -37,24 +34,36 @@
             <a href="#!/forms" class="nav-link">Forms</a>
           </li>
           <li class="nav-item">
+            <a href="#!/newsfeed" class="nav-link">Newsfeed</a>
+          </li>
+          <li class="nav-item">
             <a href="#!/about" class="nav-link">About</a>
           </li>
         </ul>
       </div>
     </nav>
 
-
-    <!--Views are loaded here-->
     <div class="container">
-      <div ng-view></div>
+      <div class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> <strong>Warning!</strong> This site is currently using testing data.</strong></div>
+      <div id="timer-lbl" class="alert alert-secondary"></div> <!-- timer is loaded here -->
+      <div ng-view></div> <!-- views are loaded here -->
       <hr>
       <span class="text-muted">This website is part of a family of co-curricular sites run by students and staff of the Manchester Grammar School. The main school website is at <a href="http://mgs.org">mgs.org</a>.</span>
     </div>
 
-    <!--Other JS libs-->
-    <script src="lib/js/jquery-3.2.1.min.js"></script>
-    <script src="lib/js/popper.min.js"></script>
-    <script src="lib/js/bootstrap.min.js"></script>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js" integrity="sha256-7ngBGhPctUEyXLD6ha53TFUaqhBCnXFOi712aqBq094=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-route.min.js" integrity="sha256-MZn3qSbJC3ofkTSdXaHYrPr5etI6xij07/pAK6Ug228=" crossorigin="anonymous"></script>
+    <!-- Pluralize -->
+    <script src="lib/js/pluralize.min.js"></script>
+    <!-- Main custom JS -->
+    <script src="lib/js/sportsday.js"></script>
+    <script src="lib/js/refresh-timer.js"></script>
+    <!-- Other JS libs -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>
