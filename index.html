@@ -37,6 +37,9 @@
             <a href="#!/newsfeed" class="nav-link">Newsfeed</a>
           </li>
           <li class="nav-item">
+            <a href="#!/insights" class="nav-link">Insights</a>
+          </li>
+          <li class="nav-item">
             <a href="#!/about" class="nav-link">About</a>
           </li>
         </ul>
@@ -44,8 +47,10 @@
     </nav>
 
     <div class="container">
-      <div class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> <strong>Warning!</strong> This site is currently using testing data.</strong></div>
-      <div id="timer-lbl" class="alert alert-secondary"></div> <!-- timer is loaded here -->
+      <div class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> <strong>Warning!</strong> This site is currently using testing data.</div>
+      <div ng-controller="timer" class="alert alert-secondary">
+        Data reloading in {{ time }} second{{ plural }}.
+      </div> <!-- timer is loaded here -->
       <div ng-view></div> <!-- views are loaded here -->
       <hr>
       <span class="text-muted">This website is part of a family of co-curricular sites run by students and staff of the Manchester Grammar School. The main school website is at <a href="http://mgs.org">mgs.org</a>.</span>
@@ -54,11 +59,12 @@
     <!-- AngularJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js" integrity="sha256-7ngBGhPctUEyXLD6ha53TFUaqhBCnXFOi712aqBq094=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-route.min.js" integrity="sha256-MZn3qSbJC3ofkTSdXaHYrPr5etI6xij07/pAK6Ug228=" crossorigin="anonymous"></script>
+    <!--Google Graph-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-chart/1.0.0-beta.1/ng-google-chart.min.js" type="text/javascript"></script>
     <!-- Pluralize -->
     <script src="lib/js/pluralize.min.js"></script>
     <!-- Main custom JS -->
     <script src="lib/js/sportsday.js"></script>
-    <script src="lib/js/refresh-timer.js"></script>
     <!-- Other JS libs -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
