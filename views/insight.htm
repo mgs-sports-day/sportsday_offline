@@ -14,9 +14,26 @@
     <ul class="list-group">
       <a class="list-group-item list-group-item-action" ng-class="{active:insightID==1}" href="#!/i/1">Score vs. Year Group</a>
       <a class="list-group-item list-group-item-action" ng-class="{active:insightID==2}" href="#!/i/2">Score vs. Form</a>
+      <a class="list-group-item list-group-item-action" ng-class="{active:insightID==3}" href="#!/i/3">Per Activity</a>
     </ul>
   </div>
   <div class="col-lg">
+    <div ng-if="insightID==3" class="mt-md-2 mb-2">
+      <select ng-model="insight3Sport" ng-change="update(this)" class="form-control">
+        <option value="" disabled selected>Select an activity...</option>
+        <option value="long_jump">Long Jump</option>
+        <option value="high_jump">High Jump</option>
+        <option value="shot">Shot</option>
+        <option value="javelin">Javelin</option>
+        <option value="100m">100m</option>
+        <option value="200m">200m</option>
+        <option value="300m">300m</option>
+        <option value="800m">800m</option>
+        <option value="1500m">1500m</option>
+        <option value="4x300m">4x300m</option>
+        <option value="4x100m">4x100m</option>
+      </select>
+    </div>
     <p ng-if="chartLoading" class="text-muted">Loading...</p>
     <div google-chart chart="DChart" style="height:500px;width:100%;"></div>
   </div>
